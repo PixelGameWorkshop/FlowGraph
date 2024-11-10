@@ -436,6 +436,7 @@ void UFlowNode::TriggerInput(const FName& PinName, const EFlowPinActivationType 
 			}
 
 			ActivationState = EFlowNodeState::Active;
+			ActivatedGameTime = GetWorld()->GetTimeSeconds();
 		}
 
 #if !UE_BUILD_SHIPPING
@@ -703,4 +704,11 @@ AActor* UFlowNode::GetActorToFocus()
 {
 	return K2_GetActorToFocus();
 }
+
 #endif
+FString UFlowNode::K2_GetStatusString_Implementation() const
+{
+	if (ActivationState == EFlowNodeState::Active)
+		return FString::Printf(TEXT("%.1f초"), GetWorld()->GetTimeSeconds() - ActivatedGameTime);
+	return FString();
+}

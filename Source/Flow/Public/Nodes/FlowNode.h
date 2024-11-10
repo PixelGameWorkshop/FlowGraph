@@ -188,6 +188,8 @@ protected:
 	UPROPERTY(SaveGame)
 	EFlowNodeState ActivationState;
 
+	float ActivatedGameTime;
+
 public:
 	EFlowNodeState GetActivationState() const { return ActivationState; }
 
@@ -259,7 +261,7 @@ public:
 
 protected:
 	// Information displayed while node is working - displayed over node as NodeInfoPopup
-	UFUNCTION(BlueprintImplementableEvent, Category = "FlowNode", meta = (DisplayName = "Get Status String"))
+	UFUNCTION(BlueprintNativeEvent, Category = "FlowNode", meta = (DisplayName = "Get Status String"))
 	FString K2_GetStatusString() const;
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "FlowNode", meta = (DisplayName = "Get Status Background Color"))
