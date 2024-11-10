@@ -274,6 +274,8 @@ void UFlowGraphSchema::BreakPinLinks(UEdGraphPin& TargetPin, bool bSendsNodeNoti
 
 	Super::BreakPinLinks(TargetPin, bSendsNodeNotification);
 
+	if (!IsValid(TargetPin.GetOwningNode())) return;
+
 	if (TargetPin.bOrphanedPin)
 	{
 		// this calls NotifyGraphChanged()
