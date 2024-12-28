@@ -42,10 +42,10 @@ void UFlowNode_Branch::ExecuteInput(const FName& PinName)
 
 	if (bResult)
 	{
-		TriggerOutput(OUTPIN_True);
+		TriggerOutput(OUTPIN_True, true);
 	}
 	else
 	{
-		TriggerOutput(OUTPIN_False);
+		TriggerOutput(OUTPIN_False, true);
 	}
 }
