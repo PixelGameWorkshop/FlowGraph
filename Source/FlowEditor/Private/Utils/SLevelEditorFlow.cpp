@@ -19,7 +19,7 @@
 
 void SLevelEditorFlow::Construct(const FArguments& InArgs)
 {
-	CreateFlowWidget();
+	// CreateFlowWidget();
 	FEditorDelegates::OnMapOpened.AddRaw(this, &SLevelEditorFlow::OnMapOpened);
 }
 
